@@ -25,6 +25,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/maps.css">
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -314,6 +315,7 @@
                         <h4 class="mb-3">Ceremonia religiosa</h4>
                         <p class="mb-2">123 Street, New York, USA</p>
                         <p class="mb-0">12:00AM - 13:00PM</p>
+                        <div id="mapa"></div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -465,7 +467,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-sm-6">
-                                    <select class="form-control bg-secondary border-0" style="height: 52px;">
+                                    <select class="form-control bg-secondary border-0" placeholder="Numero de invitados" style="height: 52px;">
                                         <option>Numero de invitados</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -540,6 +542,13 @@
     <script src="js/main.js"></script>
     <script src="js/simplyCountdown.min.js"></script>
     <script src="js/countdown.js"></script>
+
+    <!-- MAPAS -->
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+    async defer></script>
+    <script src="js/maps.js"></script>
+
 </body>
 
 </html>

@@ -115,3 +115,39 @@
     
 })(jQuery);
 
+document.getElementById('invitacionForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Create an object to hold the form data
+    const formData = {};
+    const formElements = event.target.elements;
+
+    // Iterate over form elements and add them to the formData object
+    for (let i = 0; i < formElements.length; i++) {
+        const element = formElements[i];
+        if (element.name) {
+            formData[element.name] = element.value;
+        }
+    }
+
+    // Convert the formData object to a JSON string
+    const jsonData = JSON.stringify(formData);
+
+    console.log(jsonData); // Log the JSON data for debugging
+
+    // Send the JSON data to the server using fetch
+    fetch('http://localhost:5000/api/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});

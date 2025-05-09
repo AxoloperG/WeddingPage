@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js --name api --watch --ignore-watch='node_modules'",
+    "dev": "pm2 start app.js --name api --watch --ignore-watch='node_modules'",
+    "stop": "pm2 stop api",
+    "restart": "pm2 restart api",
+    "delete": "pm2 delete api",
+    "logs": "pm2 logs api",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.2"
+  },
+  "devDependencies": {
+    "pm2": "^6.0.5"
+  }
+}

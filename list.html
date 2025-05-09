@@ -64,7 +64,12 @@
     <script>
         async function fetchData() {
             try {
-                const response = await fetch('http://rosy_y_jluis.devxolotl.com/api/list'); // Cambia la URL si es necesario
+                const response = await fetch('http://rosy_y_jluis.devxolotl.com/api/list',{
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }); // Cambia la URL si es necesario
                 const data = await response.json();
 
                 const tableBody = document.getElementById('data-table');

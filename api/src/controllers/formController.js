@@ -24,12 +24,13 @@ class FormController {
 
     
     async getList(req, res) {
-        try {
-            const formData = await FormData.find();
-            return res.status(200).json(formData);
-        } catch (error) {
-            return res.status(500).json({ error: 'Ocurrió un error.' });
-        }
+        res.status(200).json({ message: 'List of form data' });
+        // try {
+        //     const formData = await FormData.find();
+        //     return res.status(200).json(formData);
+        // } catch (error) {
+        //     return res.status(500).json({ error: 'Ocurrió un error.' });
+        // }
     }
 }
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Jack & Rose</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Boda" name="keywords">
+    <meta content="Boda" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Lista de Confirmaciones</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Acompañantes</th>
+                    <th>Asistencia</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+                <!-- Los datos se llenarán dinámicamente aquí -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- JavaScript para obtener y mostrar los datos -->
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:5000/api/list'); // Cambia la URL si es necesario
+                const data = await response.json();
+
+                const tableBody = document.getElementById('data-table');
+                tableBody.innerHTML = ''; // Limpiar la tabla antes de llenarla
+
+                data.forEach(item => {
+                    const row = `
+                        <tr>
+                            <td>${item.name}</td>
+                            <td>${item.email}</td>
+                            <td>${item.cellphone}</td>
+                            <td>${item.companions}</td>
+                            <td>${item.attendance}</td>
+                            <td>${item.message || ''}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Llamar a la función para obtener los datos al cargar la página
+        fetchData();
+    </script>
+
+</body>
+
+</html>

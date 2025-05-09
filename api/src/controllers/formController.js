@@ -21,6 +21,16 @@ class FormController {
             return res.status(500).json({ error: 'Ocurrió un error.' });
         }
     }
+
+    
+    async getList(req, res) {
+        try {
+            const formData = await FormData.find();
+            return res.status(200).json(formData);
+        } catch (error) {
+            return res.status(500).json({ error: 'Ocurrió un error.' });
+        }
+    }
 }
 
 export default new FormController();

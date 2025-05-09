@@ -119,27 +119,27 @@ document.getElementById('invitacionForm').addEventListener('submit', function(ev
     event.preventDefault(); // Prevent the default form submission
 
     // Create an object to hold the form data
-    const formData = {};
-    const formElements = event.target.elements;
+    const formData = new FormData(this)
+    
+    var JSONData = {};
 
     // Iterate over form elements and add them to the formData object
-    for (let i = 0; i < formElements.length; i++) {
-        const element = formElements[i];
-        if (element.name) {
-            formData[element.name] = element.value;
-        }
+    for (var [k,v] of formData) {
+        JSONData[k] = v;
     }
 
     // Convert the formData object to a JSON string
-    const jsonData = JSON.stringify(formData);
+    const jsonData = JSON.stringify(JSONData);
 
     console.log(jsonData); // Log the JSON data for debugging
 
     // Send the JSON data to the server using fetch
     fetch('http://localhost:5000/api/submit', {
         method: 'POST',
+        //mode: 'no-cors',
         headers: {
-            'Content-Type': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: jsonData
     })

@@ -2,8 +2,11 @@ import FormData from '../models/FormData.js';
 
 class FormController {
     async submitForm(req, res) {
+        console.log('Received form data:', req);
+        // Validar los datos del formulario
         const { name, email, cellphone, companions, attendance, message } = req.body;
-
+        console.log('Parsed form data:', { name, email, cellphone, companions, attendance, message });
+        // Validar que los campos requeridos no estén vacíos
         if (!name || !cellphone) {
             return res.status(400).json({ error: 'Nombre y telefono son requeridos' });
         }

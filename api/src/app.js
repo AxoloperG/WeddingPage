@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import formRoutes from './routes/formRoutes.js';
-import cors from 'cors';
 
 dotenv.config(); // Cargar variables de entorno
 
@@ -13,14 +12,8 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors({
-    origin: 'http://localhost:5500', // Cambia esto a la URL de tu frontend
-    methods: 'GET, POST, PUT, DELETE',
-    allowedHeaders: 'Content-Type, application/json',
-    }));
-
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Rutas
 app.use('/api', formRoutes); // Conecta las rutas del formulario

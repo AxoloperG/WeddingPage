@@ -58,13 +58,13 @@
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
 
     <!-- JavaScript para obtener y mostrar los datos -->
     <script>
         async function fetchData() {
             try {
-                const response = await fetch('http://rosy_y_jluis.devxolotl.com/api/list',{
+                const response = await fetch('http://localhost:5000/api/list',{
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'

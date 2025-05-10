@@ -3,10 +3,19 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import formRoutes from './routes/formRoutes.js';
+import cors from 'cors';
+// Importar dependencias
 
 dotenv.config(); // Cargar variables de entorno
 
 const app = express();
+app.use(cors({
+    origin: '*', // Permitir todas las solicitudes de origen
+    methods: ['GET', 'POST'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
+    credentials: true // Permitir credenciales
+}));
+// Configuración de la aplicación
 
 // Conectar a MongoDB
 connectDB();

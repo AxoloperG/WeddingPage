@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 start app.js --name api --watch --ignore-watch='node_modules'",
-    "dev": "pm2 start app.js --name api --watch --ignore-watch='node_modules'",
+    "start": "pm2 start src/app.js --name api --watch --ignore-watch='node_modules'",
+    "dev": "pm2 start src/app.js --name api --watch --ignore-watch='node_modules'",
     "stop": "pm2 stop api",
     "restart": "pm2 restart api",
     "delete": "pm2 delete api",

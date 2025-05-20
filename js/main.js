@@ -151,3 +151,10 @@ document.getElementById('invitacionForm').addEventListener('submit', function(ev
         console.error('Error:', error);
     });
 });
+
+window.addEventListener('load', function () {
+    const audio = document.getElementById('pista');
+    audio.play().catch(function(error) {
+    console.warn('Autoplay falló:', error);
+    });
+});

@@ -134,7 +134,7 @@ document.getElementById('invitacionForm').addEventListener('submit', function(ev
     console.log(jsonData); // Log the JSON data for debugging
 
     // Send the JSON data to the server using fetch
-    fetch('http://rosy_y_jluis.devxolotl.com/api/submit', {
+    fetch('https://roci-jose.devxolotl.com/api/submit', {
         method: 'POST',
         //mode: 'no-cors',
         headers: {

@@ -116,7 +116,7 @@
 
     <!-- Video Modal Start -->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <audio id="pista" src="musica.mp3" loop></audio>
+        <audio id="pista" src="musica.mp3" loop autoplay muted></audio>
     </div>
     <!-- Video Modal End -->
 
@@ -518,6 +518,16 @@
     <script src="js/main.js"></script>
     <script src="js/simplyCountdown.min.js"></script>
     <script src="js/countdown.js"></script>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        const pista = document.getElementById('pista');
+        document.body.addEventListener('click', function() {
+            pista.muted = false;
+            pista.play();
+        }, { once: true });
+    });
+</script>
 
 </body>
 

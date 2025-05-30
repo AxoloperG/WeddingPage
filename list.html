@@ -2,8 +2,16 @@
 <html lang="es">
 
 <head>
+    <script>
+        // Pedir contraseña antes de mostrar la página
+        const password = prompt('Por favor, ingresa la contraseña:');
+        if (password !== '7777777') {
+            alert('Contraseña incorrecta.');
+            window.location.href = 'https://roci-jose.devxolotl.com';
+        }
+    </script>
     <meta charset="utf-8">
-    <title>Jack & Rose</title>
+    <title>Rocío & José</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Boda" name="keywords">
     <meta content="Boda" name="description">
@@ -107,6 +115,7 @@
 
         // Llamar a la función para obtener los datos al cargar la página
         fetchData();
+        
     </script>
  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 

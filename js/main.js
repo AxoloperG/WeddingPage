@@ -128,6 +128,7 @@ document.getElementById('invitacionForm').addEventListener('submit', function(ev
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
+        alert('¡Gracias por confirmar tu invitación! Nos vemos pronto.');
     })
     .catch((error) => {
         console.error('Error:', error);

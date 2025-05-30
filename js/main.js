@@ -109,7 +109,7 @@ document.getElementById('invitacionForm').addEventListener('submit', function(ev
     for (var [k,v] of formData) {
         JSONData[k] = v;
     }
-
+    console.log(JSONData); // Log the formData object for debugging
     // Convert the formData object to a JSON string
     const jsonData = JSON.stringify(JSONData);
 
@@ -139,4 +139,34 @@ window.addEventListener('load', function () {
     audio.play().catch(function(error) {
     console.warn('Autoplay falló:', error);
     });
+});
+
+document.getElementById('companions').addEventListener('change', function() {
+    const selectedValue = this.value;
+    const companionsList = document.getElementById('companionsList');
+    companionsList.innerHTML = ''; // Clear previous entries
+    if(selectedValue>0) {
+       for(let i=0; i<selectedValue; i++) {
+            const companionItem = document.createElement('input');
+            companionItem.type = 'text';
+            //companionItem.name = `companion${i+1}`;
+            companionItem.placeholder = `Invitado ${i+1}`;
+            companionItem.className = 'form-control bg-secondary border-0 py-4 px-3 companioname';
+            companionItem.required = true;
+            //companionItem.innerHTML = `<input type="text" name="companion${i+1}" placeholder="Invitado ${i+1}"  class="form-control bg-secondary border-0 py-4 px-3" required>`;
+            companionsList.appendChild(companionItem);
+        }
+    }
+});
+
+document.getElementById('submitbtn').addEventListener('click', function() {
+    const companionInputs = document.querySelectorAll('.companioname');
+    const companionsNames = Array.from(companionInputs)
+        .map(input => input.value.trim())
+        .filter(val => val !== '')
+        .join(',  ');
+    console.log(companionsNames);
+
+    const companinput = document.getElementById('companions_names');
+    companinput.value = companionsNames;
 });

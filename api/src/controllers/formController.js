@@ -4,15 +4,15 @@ class FormController {
     async submitForm(req, res) {
         console.log('Received form data:', req);
         // Validar los datos del formulario
-        const { name, email, cellphone, companions, attendance, message } = req.body;
-        console.log('Parsed form data:', { name, email, cellphone, companions, attendance, message });
+        const { name, cellphone, companions, companionsName, attendance, message } = req.body;
+        console.log('Parsed form data:', { name, cellphone, companions, companionsName, attendance, message });
         // Validar que los campos requeridos no estén vacíos
         if (!name || !cellphone) {
             return res.status(400).json({ error: 'Nombre y telefono son requeridos' });
         }
 
         try {
-            const formData = new FormData({ name, email, companions, attendance, message, cellphone });
+            const formData = new FormData({ name, companions, companionsName, cellphone, attendance, message });
             console.log(formData);
             // Guardar los datos en la base de datos
             await formData.save();

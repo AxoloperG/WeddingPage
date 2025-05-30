@@ -34,9 +34,9 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Correo</th>
                     <th>Teléfono</th>
-                    <th>Acompañantes</th>
+                    <th>Cantidad de invitados</th>
+                    <th>Nombres de invitados</th>
                     <th>Asistencia</th>
                     <th>Mensaje</th>
                 </tr>
@@ -91,9 +91,9 @@
                     const row = `
                         <tr>
                             <td>${item.name}</td>
-                            <td>${item.email}</td>
                             <td>${item.cellphone}</td>
                             <td>${item.companions}</td>
+                            <td>${item.companionsName}</td>
                             <td>${item.attendance}</td>
                             <td>${item.message || ''}</td>
                         </tr>

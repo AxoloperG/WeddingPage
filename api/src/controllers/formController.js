@@ -26,7 +26,7 @@ class FormController {
     async getList(req, res) {
         //res.status(200).send("Hola Mundo");
         try {
-            const formData = await FormData.find().sort({ cellphone: -1 });
+            const formData = await FormData.find().sort({ createdAt: -1 });
             return res.status(200).json(formData);
         } catch (error) {
             return res.status(500).json({ error: 'Ocurrió un error.' });
